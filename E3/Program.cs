@@ -1,2 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Доп.Задача Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1. 
+// (Решить можно, если хотите потренироваться)
+// (Следующее число складывается из двух предыдущих)
+// Если N = 5 -> 0 1 1 2 3
+// Если N = 3 -> 0 1 1
+// Если N = 7 -> 0 1 1 2 3 5 8
+
+Console.Write("Введите количество последовательности чисел Фибоначи, которое хотите увидеть (больше 2) : ");
+int size = int.Parse(Console.ReadLine()!);
+
+// Создадим массив Фибоначи:
+int[] array = GetArray(size);
+
+Console.WriteLine($"Последовательность чисел Фибоначи до выбранного вами количеста это:  [{String.Join(", ", array)}]");
+
+// Функция заполнения массива числами Фибоначи
+int[] GetArray(int size)
+{
+    int[] result = new int[size];
+    result[0] = 0;
+    result[1] = 1;
+
+    for (int i = 2; i < size; i++)
+    {
+                result[i] = result[i-1] + result[i-2]; 
+    }
+    return result;
+}
